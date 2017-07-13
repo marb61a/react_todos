@@ -3,6 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      todos: [
+        {id: 1, name: 'Learn JSX', isComplete: true},
+        {id: 2, name: 'Build An Awesome App', isComplete: false},
+        {id: 3, name: 'Ship it', isComplete: false}
+      ]      
+    };
+  }
+  
   render() {
     return (
       <div className="App">
@@ -17,12 +28,15 @@ class App extends Component {
         </div>
         <div className="Todo-List">
           <ul>
-            <li> <input type="checkbox"/>Learn JSX</li>
-            <li> <input type="checkbox"/>Build An Awesome App</li>
-            <li> <input type="checkbox"/>Ship It</li>
+            {this.state.todos.map(todo => 
+              // Need a key property when using an array or iterator
+              <li key={todo.id}> 
+                <input type="checkbox" checked={todo.isComplete}/>
+                  {todo.name}
+              </li> 
+            )}
           </ul>
         </div>
-        
       </div>
     );
   }
