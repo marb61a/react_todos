@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {TodoForm} from './components/todo/TodoForm';
+import {TodoForm, TodoList} from './components/todo';
 
 
 class App extends Component {
@@ -35,17 +35,8 @@ class App extends Component {
         </div>
         <div className="Todo-App">
           <TodoForm handleInputChange={this.handleInputChange} currentTodo={this.state.currentTodo} />
-        </div>
-        <div className="Todo-List">
-          <ul>
-            {this.state.todos.map(todo => 
-              // Need a key property when using an array or iterator
-              <li key={todo.id}> 
-                <input type="checkbox" checked={todo.isComplete}/>
-                  {todo.name}
-              </li> 
-            )}
-          </ul>
+          <TodoList todos={this.state.todos}/>
+         
         </div>
       </div>
     );
