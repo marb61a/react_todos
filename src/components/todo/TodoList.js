@@ -13,3 +13,9 @@ export const TodoList = (props) => {
         </div>
     );    
 };
+
+    // React.PropTypes is deprecated since React 15.5.0 -  npm module prop-types
+    TodoList.propTypes = {
+        todos:  React.PropTypes.array.isRequired     
+        
+    };
