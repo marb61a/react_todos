@@ -6,9 +6,7 @@ import {addTodo, generateId} from './lib/todoHelpers';
 
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
+  state = {
       todos: [
         {id: 1, name: 'Learn JSX', isComplete: true},
         {id: 2, name: 'Build An Awesome App', isComplete: false},
@@ -16,27 +14,8 @@ class App extends Component {
       ],
       currentTodo: ''
     };
-    
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEmptySubmit = this.handleEmptySubmit.bind(this);
-  }
   
-  handleInputChange(evt){
-    this.setState({
-      currentTodo: evt.target.value
-    });
-    
-  } 
-  
-  handleEmptySubmit(evt){
-    evt.preventDefault();
-    this.setState({
-      errorMessage: 'Please supply a todo name'  
-    });
-  }
-  
-  handleSubmit(evt){
+  handleSubmit = (evt) => {
     evt.preventDefault();
     const newId = generateId();
     const newTodo = {
@@ -51,6 +30,20 @@ class App extends Component {
       errorMessage: ''
     });
   }
+  
+   handleEmptySubmit = (evt) => {
+    evt.preventDefault();
+    this.setState({
+      errorMessage: 'Please supply a todo name'  
+    });
+  }
+  
+   handleInputChange = (evt) => {
+    this.setState({
+      currentTodo: evt.target.value
+    });
+    
+  } 
   
   render() {
     // Returns a submit if true or an empty submit and error message if false
