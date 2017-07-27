@@ -10,7 +10,7 @@ export const updateTodo = (list, updated) => {
     const updatedIndex = list.findIndex(item => item.id === updated.id);
     return [
         ...list.slice(0, updatedIndex),
-        list,
+        updated,
         ...list.slice(updatedIndex+1)
     ];
 };

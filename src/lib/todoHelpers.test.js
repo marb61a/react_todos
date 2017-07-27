@@ -69,6 +69,7 @@ test('toggleTodo should not mutate the original todo', () => {
     const startTodo = {id: 2, name: 'two', isComplete: false};
     
     const result = toggleTodo(startTodo);
+    
     expect(result).not.toBe(startTodo);
 });
 
@@ -88,6 +89,7 @@ test('updateTodo should update an item by id', () => {
     ];
     
     const result = updateTodo(startTodos, updatedTodo);
+   
     expect(result).toEqual(expectedTodos);
 });
 

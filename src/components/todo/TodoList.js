@@ -7,7 +7,7 @@ export const TodoList = (props) => {
             <ul>
               {props.todos.map(todo => 
               // Using the spread operator to get propertie rather than .id etc
-                <TodoItem key={todo.id} {...todo}/>
+                <TodoItem handleToggle={props.handleToggle} key={todo.id} {...todo}/>
               )}
             </ul>
         </div>

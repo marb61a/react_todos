@@ -1,10 +1,12 @@
 import React from 'react';
 
 export const TodoItem = (props) => {
+    const handleToggle = props.handleToggle.bind(null, props.id);
+    
     return(
         // Need a key property when using an array or iterator
         <li> 
-          <input type="checkbox"  defaultChecked={props.isComplete}/>
+          <input type="checkbox" onChange={handleToggle} checked={props.isComplete}/>
             {props.name}
         </li> 
     );    
