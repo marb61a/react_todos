@@ -1,7 +1,8 @@
 import React from 'react';
+import {partial} from '../../lib/utils.js'
 
 export const TodoItem = (props) => {
-    const handleToggle = props.handleToggle.bind(null, props.id);
+    const handleToggle = partial(props.handleToggle.bind, props.id);
     
     return(
         // Need a key property when using an array or iterator
