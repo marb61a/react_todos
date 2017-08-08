@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from '../router';
+import {Link} from '../router';
 
 export const Footer = () => {
     return(
-        <div>
-            <link>All</link>
-            <link>Active</link>
-            <link>Complete</link>
+        <div className="Footer">
+            <Link to='/'>All</Link>
+            <Link to='/active'>Active</Link>
+            <Link to='/complete'>Complete</Link>
         </div> 
     );  
 };
