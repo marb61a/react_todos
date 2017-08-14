@@ -6,10 +6,21 @@ const getCurrentPath = () => {
 };
 
 export class Router extends Component{
+    state = {
+        route: getCurrentPath()    
+    };
+    
+    handleLinkClick = (route) => {
+        this.setState({route});
+        history.pushState(null, '', route);
+    };
+    
+    static childContextTypes = {
+        route: React.PropTypes.string
+        
+    }
+    
     render(){
-        state = {
-            route: getCurrentPath()    
-        };
         return(
             <div>
                 {this.props.children}
