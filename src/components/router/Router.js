@@ -16,7 +16,16 @@ export class Router extends Component{
     };
     
     static childContextTypes = {
-        route: React.PropTypes.string
+        route: React.PropTypes.string,
+        linkHandler: React.PropTypes.func
+        
+    }
+    
+    getChildContext(){
+        return {
+            route: this.state.route,
+            linkHandler: this.handleLinkClick
+        };
         
     }
     
