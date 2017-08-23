@@ -31,3 +31,15 @@ export const saveTodo = (todo) => {
     }).then(res => res.json);
     
 };
+
+export const destroyTodo = (id) => {
+    return fetch(`${baseUrl}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+        },
+        
+    });
+    
+};
